@@ -6,16 +6,16 @@
       "value": [
         {
           "properties": {
-            "apiname": "DPAzBlobApi5",
-            "displayName": "DPAzBlobApi5",
+            "apiname": "DPAzBlobApi1",
+            "displayName": "DPAzBlobApi1",
             "api": "AzureBlob",
             "accountName": "stoapi"
           }
         },
          {
           "properties": {
-            "apiname": "DPAzBlobApi6",
-            "displayName": "DPAzBlobApi6",
+            "apiname": "DPAzBlobApi1",
+            "displayName": "DPAzBlobApi1",
             "api": "AzureBlob",
             "accountName": "stoapi2"
           }
