@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apiconname": {
+      "value": [
+        {
+          "properties": {
+            "apiname": "DPAzBlobApi5",
+            "displayName": "DPAzBlobApi5",
+            "api": "AzureBlob",
+            "accountName": "stoapi"
+          }
+        },
+         {
+          "properties": {
+            "apiname": "DPAzBlobApi6",
+            "displayName": "DPAzBlobApi6",
+            "api": "AzureBlob",
+            "accountName": "stoapi2"
+          }
+        }
+      ]
+    }
+  }
+}
