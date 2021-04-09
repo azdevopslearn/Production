@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2019-08-01/workflowdefinition.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apiconname": {
+      "type": "array"
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/connections",
+      "apiVersion": "2016-06-01",
+      "name": "[concat(parameters('apiconname')[copyIndex()].properties.apiname)]",
+      "location": "eastus",
+      "kind": "V1",
+      "properties": {
+        "displayName": "[concat(parameters('apiconname')[copyIndex()].properties.displayName)]",
+        "customParameterValues": {},
+        "ParameterValues": {
+          "accountName": "[concat(parameters('apiconname')[copyIndex()].properties.accountName)]",
+          "accesskey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('apiconname')[copyIndex()].properties.accountName), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value]"
+        },
+        "api": {
+          "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/', resourceGroup().location, '/managedApis/', parameters('apiconname')[copyIndex()].properties.api)]"
+        }
+      },
+      "copy": {
+        "name": "apiconname",
+        "count": "[length(parameters('apiconname'))]"
+      }
+    }
+  ]
+}
