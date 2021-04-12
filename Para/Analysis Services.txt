@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "AnalysisServices": {
+      "value": [
+        {
+          "properties": {
+            "asname": "eusgnasdp01",
+            "sku": "D1",
+            "admin": "henning.knivsberg.moe@cermaq.com",
+            "BlobContainerUri": "https://eusgnstdiag01.blob.core.windows.net/dataplatform-as?sv=2015-04-05&sr=c&spr=https&se=2999-12-31T00%3A00%3A00.0000000Z&sp=racwdl&sig=AtBa1lD4Imb39KAus3OMq8vsE8wJ3RpjPjMixUGLFAw%3D"
+          }
+        }
+      ]
+    }
+  }
+}

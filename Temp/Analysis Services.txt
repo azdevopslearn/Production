@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "AnalysisServices": {
+      "type": "Array"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-08-01",
+      "name": "[concat(parameters('AnalysisServices')[copyIndex()].properties.asname)]",
+      "location": "east us",
+      "type": "Microsoft.AnalysisServices/servers",
+      "sku": {
+        "name": "[concat(parameters('AnalysisServices')[copyIndex()].properties.sku)]"
+      },
+      "copy": {
+        "name": "AnalysisServices",
+        "count": "[length(parameters('AnalysisServices'))]"
+      },
+      "properties": {
+        "asAdministrators": {
+          "members": ["[concat(parameters('AnalysisServices')[copyIndex()].properties.admin)]"]
+        },
+        "backupBlobContainerUri": "[concat(parameters('AnalysisServices')[copyIndex()].properties.BlobContainerUri)]"
+      }
+    }
+  ]
+}
