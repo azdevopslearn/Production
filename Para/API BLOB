@@ -6,8 +6,8 @@
       "value": [
         {
           "properties": {
-            "apiname": "DP04",
-            "displayName": "DP04",
+            "apiname": "DP05",
+            "displayName": "DP05",
             "api": "AzureBlob",
             "accountName": "stoapi"
           }
