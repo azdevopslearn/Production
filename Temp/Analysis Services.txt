@@ -4,7 +4,10 @@
   "parameters": {
     "AnalysisServices": {
       "type": "Array"
-    }
+    },
+	"BlobContainerUri": {
+		"type":"String"
+ }
   },
   "resources": [
     {
@@ -23,7 +26,7 @@
         "asAdministrators": {
           "members": ["[concat(parameters('AnalysisServices')[copyIndex()].properties.admin)]"]
         },
-        "backupBlobContainerUri": "[concat(parameters('AnalysisServices')[copyIndex()].properties.BlobContainerUri)]"
+        "backupBlobContainerUri": "[parameters('BlobContainerUri')]"
       }
     }
   ]

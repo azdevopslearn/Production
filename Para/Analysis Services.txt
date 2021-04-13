@@ -1,18 +1,26 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "AnalysisServices": {
       "value": [
         {
           "properties": {
-            "asname": "eusgnasdp01",
+            "asname": "analysisserver005",
             "sku": "D1",
-            "admin": "henning.knivsberg.moe@cermaq.com",
-            "BlobContainerUri": "https://eusgnstdiag01.blob.core.windows.net/dataplatform-as?sv=2015-04-05&sr=c&spr=https&se=2999-12-31T00%3A00%3A00.0000000Z&sp=racwdl&sig=AtBa1lD4Imb39KAus3OMq8vsE8wJ3RpjPjMixUGLFAw%3D"
+            "admin": "vigneshwaran1492@outlook.com"
           }
         }
       ]
+    },
+    "BlobContainerUri": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/eb7f41f7-91d2-40d0-974d-28e42755c3ae/resourceGroups/Test/providers/Microsoft.KeyVault/vaults/analysisserver"
+        },
+        "secretName": "analysis"
+      }
+    }
     }
   }
 }
